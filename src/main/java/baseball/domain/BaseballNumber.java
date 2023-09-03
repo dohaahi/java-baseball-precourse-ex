@@ -25,11 +25,15 @@ public class BaseballNumber {
     }
 
     public List<String> inverterRandomNumber() {
-        Set<Integer> madeRandomNumber = RandomNumberGenerator.makeRandomNumber();
 
-        randomNumber = madeRandomNumber.stream()
-                .map(i -> Integer.toString(i))
-                .collect(Collectors.toList());
+        // randomNumber가 없을 때만 makeRandomNumber 실행
+        if (randomNumber==null) {
+            Set<Integer> madeRandomNumber = RandomNumberGenerator.makeRandomNumber();
+
+            randomNumber = madeRandomNumber.stream()
+                    .map(i -> Integer.toString(i))
+                    .collect(Collectors.toList());
+        }
 
         return randomNumber;
     }
