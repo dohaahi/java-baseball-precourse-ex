@@ -40,13 +40,23 @@ public class BaseballNumberCompare {
     }
 
     private void setMap() {
+        result.clear();
+
         result.put("strike", Integer.toString(strike));
         result.put("ball", Integer.toString(ball));
         result.put("낫싱", Integer.toString(nothing));
+
+        resetField();
     }
 
     public Map<String, String> getResult() {
         setMap();
         return result;
+    }
+
+    private void resetField() {
+        ball = 0;
+        strike = 0;
+        nothing = 0;
     }
 }
