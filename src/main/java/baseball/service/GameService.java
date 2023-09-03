@@ -23,4 +23,16 @@ public final class GameService {
         return baseballNumberCompare.getResult();
     }
 
+    public boolean restart(String restartAnswer) {
+        if ("1".equals(restartAnswer)) {
+            return true;
+        }
+
+        if ("2".equals(restartAnswer)) {
+            return false;
+        }
+
+        throw new IllegalArgumentException("1, 2 중에 하나를 입력해주세요.");
+    }
+
 }
