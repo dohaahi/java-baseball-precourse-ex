@@ -21,6 +21,7 @@ public class GameController {
     public void start() {
 
         String userNumber = inputView.inputNumber();
+        validateInputNumber(userNumber);
 
         Map<String, String> result = play(userNumber);
 
@@ -42,11 +43,29 @@ public class GameController {
 
             // 유저가 번호 입력
             userNumber = inputView.inputNumber();
+            validateInputNumber(userNumber);
             result = gameService.play(userNumber);
 
             strike = result.get("strike");
         }
         return result;
+    }
+
+    // TODO: 검증 후 오류 발생 시 게임 재실행되도록 구현
+    private void validateInputNumber(String userNumber) {
+        if (userNumber.length() != 3) {
+            throw new IllegalArgumentException("3자리 숫자를 입력해주새요.");
+        }
+
+        char[] userNumberCharArray = userNumber.toCharArray();
+
+        for (char n : userNumberCharArray) {
+            if (n < 49 || n > 57) {
+                throw new IllegalArgumentException("1~9 사이에 숫자를 입력해주새요.");
+            }
+        }
+
+
     }
 
     private void restart(String restartAnswer) {

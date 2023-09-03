@@ -32,6 +32,7 @@ public final class GameService {
             return false;
         }
 
+        // TODO: 입력 검증 controller로 이동
         throw new IllegalArgumentException("1, 2 중에 하나를 입력해주세요.");
     }
 
