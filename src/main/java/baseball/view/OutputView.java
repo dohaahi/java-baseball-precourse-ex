@@ -32,16 +32,16 @@ public class OutputView {
         }
 
         if (!"0".equals(ball) && !"0".equals(strike)) {
-            System.out.printf("%s볼 %s스트라이크", ball, strike);
+            System.out.printf("%s볼 %s스트라이크\n", ball, strike);
             return;
         }
 
         if (!"0".equals(ball)) {
-            System.out.printf("%s볼", ball);
+            System.out.printf("%s볼\n", ball);
         }
 
         if (!"0".equals(strike)) {
-            System.out.printf("%s스트라이크", strike);
+            System.out.printf("%s스트라이크\n", strike);
         }
     }
 
