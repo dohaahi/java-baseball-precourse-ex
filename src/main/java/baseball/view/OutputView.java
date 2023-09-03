@@ -1,5 +1,7 @@
 package baseball.view;
 
+import java.util.Map;
+
 public class OutputView {
 
     private static final String INPUT_NUMBER = "숫자를 입력해주세요 :";
@@ -14,8 +16,34 @@ public class OutputView {
         System.out.print(INPUT_RETRY);
     }
 
-    // TODO: 게임 결과 출력
-    // 스트라이크, 볼, 낫싱
+    public void printGameResult(Map<String, String> result) {
+        String strike = result.get("strike");
+        String ball = result.get("ball");
+        String nothing = result.get("낫싱");
+
+        if ("3".equals(strike)) {
+            System.out.println("3스트라이크");
+            return;
+        }
+
+        if ("1".equals(nothing)) {
+            System.out.println("낫싱");
+            return;
+        }
+
+        if (!"0".equals(ball) && !"0".equals(strike)) {
+            System.out.printf("%s볼 %s스트라이크", ball, strike);
+            return;
+        }
+
+        if (!"0".equals(ball)) {
+            System.out.printf("%s볼", ball);
+        }
+
+        if (!"0".equals(strike)) {
+            System.out.printf("%s스트라이크", strike);
+        }
+    }
 
     public void endGame() {
         System.out.print(END_GAME);
