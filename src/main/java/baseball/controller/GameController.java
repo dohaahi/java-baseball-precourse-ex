@@ -22,6 +22,14 @@ public class GameController {
 
         String userNumber = inputView.inputNumber();
 
+        Map<String, String> result = play(userNumber);
+
+        outputView.printGameResult(result);
+        outputView.endGame();
+    }
+
+    // 3스트라이크가 될 때 까지 게임 실행
+    private Map<String, String> play(String userNumber) {
         Map<String, String> result = gameService.play(userNumber);
         String strike = result.get("strike");
 
@@ -34,8 +42,6 @@ public class GameController {
 
             strike = result.get("strike");
         }
-
-        outputView.printGameResult(result);
-        outputView.endGame();
+        return result;
     }
 }
