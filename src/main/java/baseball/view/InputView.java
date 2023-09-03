@@ -11,7 +11,7 @@ public class InputView {
     }
 
     // 게임 종료 후 재시작 여부 입력 받음
-    public String inputRetry() {
+    public String inputRestart() {
         OutputView.printInputRetryMessage();
         return readLine();
     }
