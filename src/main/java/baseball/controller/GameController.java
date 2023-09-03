@@ -26,6 +26,10 @@ public class GameController {
 
         outputView.printGameResult(result);
         outputView.endGame();
+
+        // 게임이 끝난 뒤 재시작여부 입력
+        String restartAnswer = inputView.inputRestart();
+        restart(restartAnswer);
     }
 
     // 3스트라이크가 될 때 까지 게임 실행
@@ -43,5 +47,13 @@ public class GameController {
             strike = result.get("strike");
         }
         return result;
+    }
+
+    private void restart(String restartAnswer) {
+        boolean isRestart = gameService.restart(restartAnswer);
+
+        if (isRestart) {
+            start();
+        }
     }
 }
