@@ -15,12 +15,12 @@ public final class GameService {
 
     // 기능
     // BaseballNumber에 저장된 두 수를 비교하여 결과 리턴
-    public void play(String userBaseballNumber) {
+    public Map<String,String> play(String userBaseballNumber) {
         List<String> userNumber = baseballNumber.inverterUserNumber(userBaseballNumber);
         List<String> randomNumber = baseballNumber.inverterRandomNumber();
 
         baseballNumberCompare.compare(userNumber, randomNumber);
-        Map<String, String> result = baseballNumberCompare.getResult();
+        return baseballNumberCompare.getResult();
     }
 
 }
