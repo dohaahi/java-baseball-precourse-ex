@@ -29,12 +29,14 @@ public class BaseballNumberCompare {
                         continue;
                     }
                     ball++;
-                    continue;
                 }
             }
         }
 
-        nothing++;
+        if (strike == 0 && ball == 0) {
+            nothing++;
+        }
+
     }
 
     private void setMap() {
@@ -44,6 +46,7 @@ public class BaseballNumberCompare {
     }
 
     public Map<String, String> getResult() {
+        setMap();
         return result;
     }
 }
