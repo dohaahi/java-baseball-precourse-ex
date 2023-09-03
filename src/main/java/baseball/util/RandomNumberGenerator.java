@@ -7,9 +7,12 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class RandomNumberGenerator {
 
-    private final Set<Integer> randomNumber = new HashSet<>();
+    private final static Set<Integer> randomNumber = new HashSet<>();
 
-    public Set<Integer> makeRandomNumber() {
+    public RandomNumberGenerator() {
+    }
+
+    public static Set<Integer> makeRandomNumber() {
 
         // 중복 없이 랜덤하게 숫자 3개를 뽑음
         while (randomNumber.size() < 3) {
