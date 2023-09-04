@@ -1,7 +1,6 @@
 package baseball.controller;
 
 import baseball.service.GameService;
-import baseball.view.InputView;
 import baseball.view.OutputView;
 
 import java.util.Map;
@@ -18,17 +17,25 @@ public class GameController {
     }
 
     public void start() {
-        // TODO: 검증 후 오류 발생 시 게임 재실행되도록 구현
-        String userNumber = inputController.readNumber();
+        try {
+            String userNumber = inputController.readNumber();
+            Map<String, String> result = play(userNumber);
 
-        Map<String, String> result = play(userNumber);
+            outputView.printGameResult(result);
+            outputView.endGame();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return;
+        }
 
-        outputView.printGameResult(result);
-        outputView.endGame();
 
         // 게임이 끝난 뒤 재시작여부 입력
-        String restartAnswer = inputController.readRestart();
-        restart(restartAnswer);
+        try {
+            String restartAnswer = inputController.readRestart();
+            restart(restartAnswer);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     // 3스트라이크가 될 때 까지 게임 실행
