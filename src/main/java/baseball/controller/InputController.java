@@ -31,16 +31,10 @@ public class InputController {
     public String readRestart() {
         String inputRestart = inputView.inputRestart();
 
-        if (!"1".equals(inputRestart) || !"2".equals(inputRestart) ) {
+        if (!"1".equals(inputRestart) && !"2".equals(inputRestart) ) {
                 throw new IllegalArgumentException(NUMBER_RANGE_WRONG_ERROR);
             }
 
         return inputRestart;
     }
 }
-
-/*
-    inputController는 InputView를 멤버변수로 갖음
-    Gamecontroller는 InputController에 접근 가능 + InputView에 접근 불가능
-
- */

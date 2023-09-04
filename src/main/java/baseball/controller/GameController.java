@@ -50,9 +50,8 @@ public class GameController {
 
 
     private void restart(String restartAnswer) {
-        boolean isRestart = gameService.restart(restartAnswer);
 
-        if (isRestart) {
+        if ("1".equals(restartAnswer)) {
             start();
         }
     }

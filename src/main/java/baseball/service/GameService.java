@@ -23,9 +23,4 @@ public final class GameService {
         return baseballNumberCompare.getResult();
     }
 
-    public boolean restart(String restartAnswer) {
-        // 1을 입력했을 경우에만 true 반환
-        return "1".equals(restartAnswer);
-    }
-
 }
